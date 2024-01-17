@@ -9,27 +9,28 @@ public class Main {
         String compChoice;
         boolean gameOver = false;
         HashMap<String, String> rps = new HashMap<>();
-        rps.put("r", "s");
-        rps.put("s", "p");
-        rps.put("p", "r");
+        rps.put("Rock", "Scissors");
+        rps.put("Scissors", "Paper");
+        rps.put("Paper", "Rock");
 
-        String[] compChoices = { "r", "p", "s" };
+        String[] compChoices = { "Rock", "Paper", "Scissors" };
 
-        while (true) {
+        do {
             System.out.println("Welcome to the Rock Paper Scissor Game!");
-            System.out.print("Please choose r, p, or s");
+            System.out.print("Please choose Rock, Paper, or Scissors ");
 
             int compChoiceIdx = new Random().nextInt(compChoices.length);
             compChoice = compChoices[compChoiceIdx];
 
             userChoice = scnr.nextLine();
 
-            if (rps.containsKey(userChoice)) {
-                break;
-            }
-        }
+        } while (!rps.containsKey(userChoice));
 
         //Draw
+        if (Objects.equals(userChoice, compChoice)) {
+            System.out.println("Its a draw! " + userChoice + " is the same as " + compChoice);
+            gameOver = true;
+        }
 
         //User wins
         for ( Map.Entry<String, String> entry : rps.entrySet()) {
@@ -41,14 +42,14 @@ public class Main {
             }
 
             if (Objects.equals(compChoice, value)) {
-                System.out.println("You win! " + userChoice + "beats " + compChoice);
+                System.out.println("You win! " + userChoice + " beats " + compChoice);
                 gameOver = true;
             }
         }
 
         //Comp Wins
         if (!gameOver) {
-            System.out.println("You Lose! " + compChoice + "beats " + userChoice);
+            System.out.println("You Lose! " + compChoice + " beats " + userChoice);
             gameOver = true;
         }
 
