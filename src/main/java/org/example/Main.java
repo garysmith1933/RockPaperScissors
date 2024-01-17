@@ -28,6 +28,8 @@ public class Main {
 
         //Draw
         if (Objects.equals(userChoice, compChoice)) {
+            System.out.println("Your choice: " + userChoice);
+            System.out.println("Computer choice: " + compChoice);
             System.out.println("Its a draw! " + userChoice + " is the same as " + compChoice);
             gameOver = true;
         }
@@ -42,6 +44,8 @@ public class Main {
             }
 
             if (Objects.equals(compChoice, value)) {
+                System.out.println("Your choice: " + userChoice);
+                System.out.println("Computer choice: " + compChoice);
                 System.out.println("You win! " + userChoice + " beats " + compChoice);
                 gameOver = true;
             }
@@ -49,6 +53,8 @@ public class Main {
 
         //Comp Wins
         if (!gameOver) {
+            System.out.println("Your choice: " + userChoice);
+            System.out.println("Computer choice: " + compChoice);
             System.out.println("You Lose! " + compChoice + " beats " + userChoice);
             gameOver = true;
         }
